@@ -3,6 +3,8 @@ import { state } from "./state.js"
 
 const btnStart = document.querySelector('.control__btn_start')
 const btnStop = document.querySelector('.control__btn_stop')
+const navigationBtns = document.querySelectorAll('.navigation__btn')
+console.log(navigationBtns)
 
 const stop = () => {
     clearTimeout(state.timerId)
@@ -20,10 +22,11 @@ export const initControl = () => {
             btnStart.textContent = 'Старт'
         } else {
             state.isActive = true
-            btnStart.textContent = 'Стоп'
-        }     
-        startTimer()
+            btnStart.textContent = 'Пауза'
+            startTimer()
+        }
     })
 
     btnStop.addEventListener('click', stop)
+    showTime(state.timeLeft)
 }
