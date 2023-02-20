@@ -1,4 +1,5 @@
 import { alarm } from "./alarm.js"
+import { changeActiveBtn } from "./control.js"
 import { state } from "./state.js"
 import { addZero } from "./util.js"
 
@@ -21,7 +22,6 @@ export const startTimer = () => {
     
     if (state.timeLeft <= 0) {
         alarm() //оповестить что время вышло
-        console.log(state.activeTodo)
 
         if (state.status === 'work'){
             state.activeTodo.pomodoro += 1
@@ -34,10 +34,9 @@ export const startTimer = () => {
         } else {
             state.status = 'work'
         }
-        console.log(state[state.status] * 60)
         state.timeLeft = state[state.status] * 60
 
-        console.log(state.activeTodo)
+        changeActiveBtn(state.status)
         startTimer()
     }
 }

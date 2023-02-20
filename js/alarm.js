@@ -11,5 +11,5 @@ const audio = {
 
 export const alarm = () => {
     //audio.play()
-    console.log('//audio.play()', audio[state.status],  state.status)
+    //console.log('//audio.play()', audio[state.status],  state.status)
 }
