@@ -8,7 +8,7 @@ export const state = {
     break: BREAK_TIME,
     relax: RELAX_TIME,
     status: 'work',
-    count: 4,
+    count: 4,                   //колличество помадорок до длительного отдыха 
     timeLeft: WORK_TIME * 60,   //потрачено времени
     isActive: false,
     timerId: 0                  //айдишник таймера, для сборса 

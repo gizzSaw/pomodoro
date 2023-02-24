@@ -21,8 +21,6 @@ export const startTimer = () => {
     }
     
     if (state.timeLeft <= 0) {
-        alarm() //оповестить что время вышло
-
         if (state.status === 'work'){
             state.activeTodo.pomodoro += 1
 
@@ -34,8 +32,9 @@ export const startTimer = () => {
         } else {
             state.status = 'work'
         }
-        state.timeLeft = state[state.status] * 60
 
+        alarm() //оповестить что время вышло
+        state.timeLeft = state[state.status] * 60
         changeActiveBtn(state.status)
         startTimer()
     }
