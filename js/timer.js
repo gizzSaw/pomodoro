@@ -1,6 +1,7 @@
 import { alarm } from "./alarm.js"
 import { changeActiveBtn } from "./control.js"
 import { state } from "./state.js"
+import { showTodo, updateTodo } from "./todo.js"
 import { addZero } from "./util.js"
 
 const minutesElem = document.querySelector('.time__minutes')
@@ -13,7 +14,7 @@ export const showTime = seconds => {
 }
 
 export const startTimer = () => {
-    state.timeLeft -= 9 //обратный отсчёт в секундах исправить 
+    state.timeLeft -= 19 //обратный отсчёт в секундах исправить 
     showTime(state.timeLeft) //отобразить на странице
     
     if (state.timeLeft > 0 && state.isActive) { //перезапуск функции из функции, пока не кончится время 
@@ -23,6 +24,8 @@ export const startTimer = () => {
     if (state.timeLeft <= 0) {
         if (state.status === 'work'){
             state.activeTodo.pomodoro += 1
+            updateTodo(state.activeTodo)
+            
 
             if(state.activeTodo.pomodoro % state.count) {
                 state.status = 'break'
@@ -36,6 +39,7 @@ export const startTimer = () => {
         alarm() //оповестить что время вышло
         state.timeLeft = state[state.status] * 60
         changeActiveBtn(state.status)
+        showTodo()
         startTimer()
     }
 }
