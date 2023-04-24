@@ -108,7 +108,6 @@ const renderTodoList = (list) => {
 }
 
 export const showTodo = () => {
-    console.log(state.activeTodo)
     if (state.activeTodo) {
         titleElem.textContent = state.activeTodo.title
         countElem.textContent = state.activeTodo.pomodoro

@@ -1,6 +1,6 @@
-const WORK_TIME = 3           // минут
-const BREAK_TIME = 1           // минут
-const RELAX_TIME = 2         // минут
+const WORK_TIME = 25           // минут
+const BREAK_TIME = 5           // минут
+const RELAX_TIME = 20         // минут
 
 
 export const state = {
