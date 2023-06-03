@@ -35,6 +35,7 @@ export const startTimer = () => {
         }
 
         document.title = title
+        clearTimeout(state.timerId)
 
         if (state.status === 'work') {
             state.activeTodo.pomodoro += 1
